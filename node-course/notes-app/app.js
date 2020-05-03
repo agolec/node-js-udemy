@@ -2,9 +2,10 @@ const chalk = require('chalk')
 const getNotes = require ('./notes.js')
 
 const message = getNotes();
+const successMsg = 'Success!'
 console.log(message)
 
-console.log(chalk.green('success!'))
+console.log(chalk.green(successMsg))
 /*
 use the chalk library in your project.
 
