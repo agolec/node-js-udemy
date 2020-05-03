@@ -1,15 +1,16 @@
-//challange from section 3 section 10.
-
-/*
-definine a function in a new file.
-
-1. create a new file called notes.js
-2. create getNotes function that returns "Your notes..."
-3. export getnotes function.
-4. from app.js, load in and call the function to console.
-*/
+const chalk = require('chalk')
 const getNotes = require ('./notes.js')
 
 const message = getNotes();
+console.log(message)
 
-console.log(message);
+console.log(chalk.green('success!'))
+/*
+use the chalk library in your project.
+
+1. install 2.4.1 version of chalk.
+2. Load chalk into app.js
+3. Use this to print the sting "success!" to the console in green.
+4. Test your work.
+
+*/
