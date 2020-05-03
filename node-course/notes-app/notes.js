@@ -1,8 +1,4 @@
-const getNotes = function (){
-
-     console.log(myModule);
-
-
-    return 'your notes. . .'
-} 
-
+const getNotes = function(){
+    return 'Your notes. . .'
+}
+module.exports = getNotes
