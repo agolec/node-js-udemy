@@ -4,6 +4,18 @@ const getNotes = function () {
     return 'Your notes...'
 }
 
+const removeNote = function (title) {
+    const notes = loadNotes()
+
+    const matchingTitle = notes.filter(title)
+
+    if(matchingTitle === title){
+        console.log('title was found and is being removed')
+    } else {
+        console.log('title was not found.')
+    }
+    
+}
 
 const addNote = function(title, body) {
    
@@ -20,14 +32,8 @@ const addNote = function(title, body) {
          saveNotes(notes)
          console.log('New Note Added.')
     } else {
-        console.log('Note title taken!')
+        console.log('Note title is already taken! Note not added to list.')
     }
-   
-    
-
-   
-
-   
 }
 
 const saveNotes = function(notes){
@@ -46,13 +52,11 @@ const loadNotes = function(){
     } catch (e) {
         return []
     }
-    
-    
-    
 }
 
 module.exports = {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote
 }
 
