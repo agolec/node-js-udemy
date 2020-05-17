@@ -1,4 +1,5 @@
 const fs = require('fs')
+const chalk = require('chalk')
 
 const getNotes = function () {
     return 'Your notes...'
@@ -7,14 +8,18 @@ const getNotes = function () {
 const removeNote = function (title) {
     const notes = loadNotes()
 
-    const matchingTitle = notes.filter(title)
-
-    if(matchingTitle === title){
-        console.log('title was found and is being removed')
-    } else {
-        console.log('title was not found.')
+    const notesToKeep = notes.filter(function (note) {
+        return note.title != title
+    })
+    //if length of these two arrays are the same after processing, then
+    //the note wasn't found/ Printing error message.
+    if(notes.length > notesToKeep.length){
+        console.log(chalk.green.inverse('Note ' + title + ' was removed.'))
+        saveNotes(notesToKeep)
     }
-    
+    else {
+        console.log(chalk.red.inverse('Note with title ' + title + ' was not found. Could not delete anything'))
+    }
 }
 
 const addNote = function(title, body) {
