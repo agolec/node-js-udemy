@@ -33,11 +33,11 @@ const addNote = function(title, body) {
         notes.push({
             title: title,
             body: body
-         })
-         saveNotes(notes)
-         console.log('New Note Added.')
+        })
+        saveNotes(notes)
+        console.log(chalk.green.inverse('New Note Added.'))
     } else {
-        console.log('Note title is already taken! Note not added to list.')
+        console.log(chalk.red.inverse('Note title is already taken! Note not added to list.'))
     }
 }
 
