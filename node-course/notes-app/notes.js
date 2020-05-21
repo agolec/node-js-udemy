@@ -8,9 +8,7 @@ const getNotes = function () {
 const removeNote = function (title) {
     const notes = loadNotes()
 
-    const notesToKeep = notes.filter(function (note) {
-        return note.title != title
-    })
+    const notesToKeep = notes.filter((note) => note.title != title)
     //if length of these two arrays are the same after processing, then
     //the note wasn't found/ Printing error message.
     if(notes.length > notesToKeep.length){
@@ -36,9 +34,7 @@ const listNotes = () => {
 const addNote = function(title, body) {
    
     const notes = loadNotes()
-    const duplicateNotes = notes.filter(function (note){
-        return note.title === title
-    })
+    const duplicateNotes = notes.filter((note) => note.title === title)
     
     if(duplicateNotes.length === 0) {
         notes.push({
