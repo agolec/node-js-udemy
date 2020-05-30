@@ -50,6 +50,8 @@ request({ url: geocodingURL, json: true }, (error, response) => {
       console.log('The place searched is ' + name + '. The coordinates of ' + name + ' are: ' + latitude + ' and ' + longitude )
 
    }
+
+
 })
 
 
