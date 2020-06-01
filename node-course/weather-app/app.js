@@ -1,5 +1,6 @@
 
 const geocode = require('./utils/geocode')
+const forecast = require('./utils/forecast')
 
 /*const url = 'http://api.weatherstack.com/current?access_key=531015d3106fd3263ae1028b52614cd4&query=34.0522,-118.2437&units=f'
 
@@ -9,8 +10,6 @@ request({ url: url, json: true }, (error, response) => {
       console.log('unable to connect to the weather service\n\n')
    } else if(response.body.error){
       console.log('unable to find location.')
-      console.log('Error code is: ' + response.body.error.code)
-      console.log('Error code description is: ' + response.body.error.info)
    }
    
    else{
@@ -23,43 +22,31 @@ request({ url: url, json: true }, (error, response) => {
 })
 */
 
-// Geocoding
-// Address -> Latitude/Longitude -> Weather
-
-// const geocodingURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Kenya.json?access_token=pk.eyJ1IjoiYWdvbGVjIiwiYSI6ImNrYWx1MWNseDE1dHoycmw2MXE1bmNlZWkifQ.98L-uyyu71PEHtQ-JYwaNg&limit=1'
-
-// request({ url: geocodingURL, json: true }, (error, response) => {
-
-  
-
-//    if(error){
-
-//       console.log('unable to connect to the weather service\n\n')
-
-//    } else if(response.body.features.length === 0) {
-
-//       console.log('Location did not return results. Try another city or country name.\n\n')
-      
-//    }
-//    else {
-
-//       const latitude = response.body.features[0].center[1]
-//       const longitude = response.body.features[0].center[0]
-//       const name = response.body.features[0].place_name
-//       console.log('lat is ' + latitude + ' and long is ' + longitude )
-//       console.log('The place searched is ' + name + '. The coordinates of ' + name + ' are: ' + latitude + ' and ' + longitude )
-
-//    }
 
 
+//       DO NOT DELETE THE NEXT 4 lines
+
+// geocode('New Delhi', (error, data) => {
+//    console.log('Error:', error)
+//    console.log('Data: ', data)
 // })
 
+//
+// Goal: Create a reusable function for getting the forecast
+//
+// 1. Setup the "forecast" function in utils/forecast.js
+// 2. Require the function in app.js and call it as shown below
+// 3. The forecast function should have three potential calls to callback:
+//    - Low level error, pass string for error
+//    - Coordinate error, pass string for error
+//    - Success, pass forecast string for data (same format as from before)
 
+/// -75.7088, 44.1545
 
-geocode('New Delhi', (error, data) => {
-   console.log('Error:', error)
-   console.log('Data: ', data)
-})
+forecast(-75.7088, 44.1545, (error, data) => {
+   console.log('Error', error)
+   console.log('Data', data)
+ })
 
 
 
