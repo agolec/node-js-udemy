@@ -22,8 +22,12 @@ const product = {
     salePrice: undefined
 }
 
+//the code below is considered destructured since it inserts the variables we plan to use in a product object by just referring to the 
+//properties it wants in the function definition.
+
 const transaction = (type, {label, stock}) => {
     console.log(type,label,stock)
 }
 
+//function passes in the product object.
 transaction('order',product)

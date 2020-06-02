@@ -3,21 +3,22 @@ const forecast = require('./utils/forecast')
 
 console.log(process.argv)
 
-const location = process.argv[2]
+const address = process.argv[2]
 
-if(!location){
+if(!address){
    console.log('there is no city or country name entered.')
 } else {
- geocode(location, (error, data) => {
+   
+ geocode(address, (error, {latitude, longitude, location} = {}) => {
     if(error){
        return console.log(error)
     }
 
-   forecast(data.longitude, data.latitude, (error, forecastData) => {
+   forecast(longitude, latitude, (error, forecastData) => {
       if(error){
          return console.log(error)
       }
-      console.log(data.location)
+      console.log(location)
       console.log(forecastData)
    })
  })
