@@ -14,6 +14,19 @@ app.get('', (req, res) => {
     })
 })
 
+app.get('/about', (req,res) => {
+    res.render('about', {
+        photoTitle: 'Japan',
+        name: 'Adam Golec'
+    })
+})
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        helpMessage: 'Help Message Template Example Here. . .'
+    })
+})
+
 app.get('/weather', (req,res) => {
     res.send({
         forecast: 'Sunny',
